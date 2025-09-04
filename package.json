@@ -1,17 +1,16 @@
 {
   "name": "projeto-cnw2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de cadastro de usuários com Node.js e SQLite",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
-  "keywords": [],
+  "keywords": ["nodejs", "express", "sqlite", "crud"],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "sqlite3": "^5.1.7"
   }

@@ -2,57 +2,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Cadastro de Usuários</title>
-<!-- Link para o arquivo de estilo (public/style.css) -->
-<link rel="stylesheet" href="/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de Usuários</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-<main class="container">
-<header class="site-header">
-<h1>Cadastro de Usuários</h1>
-<p class="subtitle">Insira nome e e‑mail para cadastrar um novo usuário.</p>
-</header>
+  <main class="container">
+    <header class="site-header">
+      <h1>Cadastro de Usuários</h1>
+      <p class="subtitle">Insira nome e e‑mail para cadastrar um novo usuário.</p>
+    </header>
 
+    <section class="card form-card">
+      <form action="/cadastrar" method="post" id="form-cadastro">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" required placeholder="Seu nome">
+        </div>
 
-<section class="card form-card">
-<form action="/cadastrar" method="post" id="form-cadastro">
-<div class="field">
-<label for="nome">Nome</label>
-<input id="nome" name="nome" type="text" required placeholder="Seu nome" />
-</div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="seu@exemplo.com">
+        </div>
 
+        <div class="actions">
+          <button class="btn primary" type="submit">Cadastrar</button>
+          <a class="btn ghost" href="/consultar">Consultar Usuários</a>
+        </div>
+      </form>
+    </section>
 
-<div class="field">
-<label for="email">Email</label>
-<input id="email" name="email" type="email" required placeholder="seu@exemplo.com" />
-</div>
+    <footer class="site-footer">
+      <small>Projeto de exemplo • Node + SQLite</small>
+    </footer>
+  </main>
 
-
-<div class="actions">
-<button class="btn primary" type="submit">Cadastrar</button>
-<a class="btn ghost" href="/consultar">Consultar Usuários</a>
-</div>
-</form>
-</section>
-
-
-<footer class="site-footer">
-<small>Projeto de exemplo • Node + SQLite</small>
-</footer>
-</main>
-
-
-<!-- Pequeno script para melhorar a UX local (confirmação visual simples) -->
-<script>
-const form = document.getElementById('form-cadastro');
-form.addEventListener('submit', () => {
-// desabilita o botão para evitar múltiplos cliques
-const btn = form.querySelector('button[type="submit"]');
-btn.disabled = true;
-btn.textContent = 'Enviando...';
-});
-</script>
+  <script>
+    document.getElementById('form-cadastro').addEventListener('submit', function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+    });
+  </script>
 </body>
 </html>
